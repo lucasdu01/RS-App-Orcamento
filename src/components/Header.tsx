@@ -7,7 +7,6 @@ export function Header({ children }){
                 width: "100%",
                 flexDirection: "row",
                 justifyContent:"space-between",
-                marginBottom: 24,
                 borderBottomColor: "#F0F0F0",
                 borderBottomWidth: 2,
                 padding: 20,

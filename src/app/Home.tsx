@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import { Title } from "@/components/Title";
 import { Button} from "@/components/Button";
 import { Header } from "@/components/Header";
-// import { Filter } from "@/components/FilterComponent";
+import { FilterComponent } from "@/components/FilterComponent";
 
 
 export function Home(){
@@ -13,7 +13,7 @@ export function Home(){
                 <Title>Orçamentos</Title>
                 <Button nameIcon="add">Novo</Button>
             </Header>
-            {/* <Filter/> */}
+            <FilterComponent></FilterComponent>
         </View>
     )
 }
