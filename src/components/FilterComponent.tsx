@@ -13,7 +13,6 @@ export function FilterComponent() {
       style={{
         flexDirection: "row",
         paddingVertical: 24,
-        paddingHorizontal: 20,
         gap: 8,
       }}
     >

@@ -9,7 +9,7 @@ export function Header({ children }){
                 justifyContent:"space-between",
                 borderBottomColor: "#F0F0F0",
                 borderBottomWidth: 2,
-                padding: 20,
+                paddingVertical: 20,
                 alignItems: "center",
         }}>
             {children}
