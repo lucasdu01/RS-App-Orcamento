@@ -26,7 +26,7 @@ export function Section({children, title, nameIcon}: SectionProps){
 const styles = StyleSheet.create({
     container: {
         borderRadius: 10,
-        borderColor: "#F0F0F0",
+        borderColor: "#E6E5E5",
         borderWidth: 1,
         borderBottomWidth: 1,
     },
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         gap: 8,
         paddingVertical: 16,
         paddingHorizontal: 12,
-        borderBottomColor: "#F0F0F0",
+        borderBottomColor: "#E6E5E5",
         borderBottomWidth: 1,
     },
     content: {

@@ -1,12 +1,5 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Home } from "@/app/Home";
-import { NovoOrcamento } from "@/app/NovoOrcamento";
-
+import { Routes } from "@/routes";
 
 export default function App() {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-    	<NovoOrcamento />
-    </SafeAreaView>
-  );
+  return <Routes />
 }

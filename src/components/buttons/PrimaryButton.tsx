@@ -1,7 +1,7 @@
 import { TouchableOpacity, TouchableOpacityProps, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export function PrimaryButton({ children, nameIcon = null, ...rest }) {
+export function PrimaryButton({ children, nameIcon = null, ...rest }:any) {
   return (
     <TouchableOpacity
       style={{

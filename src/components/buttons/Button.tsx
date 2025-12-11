@@ -1,9 +1,15 @@
 import { TouchableOpacity, TouchableOpacityProps, Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export function Button({ children, nameIcon = null, ...rest }) {
+type ButtonProps = TouchableOpacityProps & {
+  children: React.ReactNode;
+  nameIcon?: keyof typeof MaterialIcons.glyphMap;
+};
+
+export function Button({ children, nameIcon, ...rest }: ButtonProps) {
   return (
     <TouchableOpacity
+      {...rest}
       style={{
         backgroundColor: "#6A46EB",
         flexDirection: "row",
