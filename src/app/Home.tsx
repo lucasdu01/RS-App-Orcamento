@@ -4,7 +4,7 @@ import {ModalFilter } from "@/app/ModalFilter";
 
 import { Title } from "@/components/Title";
 import { Button} from "@/components/buttons/Button";
-import { Header } from "@/components/Header";
+import { HeaderMain } from "@/components/HeaderMain";
 import { FilterComponent } from "@/components/FilterComponent";
 import { ItemOrcamento } from "@/components/ItemOrcamento";
 
@@ -13,10 +13,10 @@ export function Home(){
     const [modalFilterVisible, setModalFilterVisible] = useState(false);
     return(
         <View style={{flex: 1, paddingTop: 54, padding: 20}}>
-            <Header>
+            <HeaderMain>
                 <Title>Orçamentos</Title>
                 <Button nameIcon="add">Novo</Button>
-            </Header>
+            </HeaderMain>
             <FilterComponent onOpenModal={() => setModalFilterVisible(true)}></FilterComponent>
             <ItemOrcamento></ItemOrcamento>
             <ModalFilter
