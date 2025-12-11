@@ -22,5 +22,6 @@ const styles = StyleSheet.create ({
     container: {
         flexDirection: "row",
         gap: 12,
+         alignItems: "center"
     }
 });
