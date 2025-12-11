@@ -7,7 +7,11 @@ import {
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export function FilterComponent() {
+type FilterComponentProps = {
+  onOpenModal: () => void;
+}
+
+export function FilterComponent({ onOpenModal }: FilterComponentProps) {
   return (
     <View
       style={{
@@ -49,6 +53,7 @@ export function FilterComponent() {
           backgroundColor: "#FAFAFA",
           borderColor: "#E6E5E5",
         }}
+        onPress={onOpenModal}
       >
         <MaterialIcons
           name="filter-list"
