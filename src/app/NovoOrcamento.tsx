@@ -73,11 +73,11 @@ export function NovoOrcamento() {
             </View>
           </Section>
         </View>
-        <View style={styles.footerButtons}>
-              <SecondaryButton>Cancelar</SecondaryButton>
-              <PrimaryButton nameIcon="check">Salvar</PrimaryButton>
-          </View>
       </ScrollView>
+      <View style={styles.footerButtons}>
+        <SecondaryButton>Cancelar</SecondaryButton>
+        <PrimaryButton nameIcon="check">Salvar</PrimaryButton>
+      </View>
     </View>
   );
 }
