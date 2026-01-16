@@ -3,10 +3,6 @@ import { Modal, View, Text, StyleSheet, TouchableOpacity} from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { Checkbox } from "@/components/buttons/Checkbox";
-import { TagAprovado } from "@/components/tags/TagAprovado";
-import { TagEnviado } from "@/components/tags/TagEnviado";
-import { TagRascunho } from "@/components/tags/TagRascunho";
-import { TagRecusado } from "@/components/tags/TagRecusado";
 import { RadioButton } from "@/components/buttons/RadioButton";
 import { SecondaryButton } from "@/components/buttons/SecondaryButton";
 import { PrimaryButton } from "@/components/buttons/PrimaryButton";
@@ -18,6 +14,18 @@ type ModalFilterProps = {
 }
 
 export function ModalFilter({ visible, onClose }: ModalFilterProps) {
+    const [selectedRadio, setSelectedRadio] = useState(-1);
+    const [selectedCheck, setSelectedCheck] = useState<number[]>([]); // Array de índices selecionados
+
+    // Função para toggle do checkbox
+    const handleCheckboxToggle = (index: number) => {
+        if (selectedCheck.includes(index)) {
+            setSelectedCheck(selectedCheck.filter(i => i !== index)); // Remove
+        } else {
+            setSelectedCheck([...selectedCheck, index]); // Adiciona
+        }
+    };
+
     return(      
         <Modal
             animationType="fade"
@@ -35,20 +43,26 @@ export function ModalFilter({ visible, onClose }: ModalFilterProps) {
                     </View>
                     <View style={styles.section}>
                         <Text style={styles.titleSection}>Status</Text>
-                        <Checkbox><TagRascunho/></Checkbox>
-                        <Checkbox><TagEnviado/></Checkbox>
-                        <Checkbox><TagAprovado/></Checkbox>
-                        <Checkbox><TagRecusado/></Checkbox>
+                        <Checkbox
+                            options={["Rascunho", "Enviado", "Aprovado", "Recusado"]}
+                            selectedCheck={selectedCheck}
+                            onChangeSelect={handleCheckboxToggle}
+                        ></Checkbox>
                     </View>
                     <View style={styles.section}>
                         <Text style={styles.titleSection}>Ordenação</Text>
-                        <RadioButton>Mais recente</RadioButton>
-                        <RadioButton>Mais antigo</RadioButton>
-                        <RadioButton>Maior valor</RadioButton>
-                        <RadioButton>Menor valor</RadioButton>
+                        <RadioButton 
+                            options={["Mais recente", "Mais antigo", "Maior valor", "Menor valor"]}
+                            onChangeSelect={(opt, i) => setSelectedRadio(i)}
+                            selectedRadio={selectedRadio}
+                        ></RadioButton>
                     </View>
                     <View style={styles.modalButtons}>
-                        <SecondaryButton>Resetar Filtros</SecondaryButton>
+                        <SecondaryButton onPress={() => {
+                            setSelectedRadio(-1);
+                            setSelectedCheck([]);
+                        }}>
+                            Resetar Filtros</SecondaryButton>
                         <PrimaryButton nameIcon="check">Aplicar</PrimaryButton>
                     </View>
                 </View>

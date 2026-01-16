@@ -4,6 +4,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 export function SecondaryButton({ children, nameIcon = null, ...rest }:any) {
   return (
     <TouchableOpacity
+    {...rest}
       style={{
         backgroundColor: "#F0F0F0",
         flexDirection: "row",

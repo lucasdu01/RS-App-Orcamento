@@ -5,6 +5,7 @@ import {
   TouchableOpacityProps,
   View,
 } from "react-native";
+
 import { MaterialIcons } from "@expo/vector-icons";
 
 type FilterComponentProps = {
