@@ -1,27 +1,49 @@
 import { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { ReactNode } from "react";
 
 interface RadioButtonProps {
-    options: string[];
-    onChangeSelect: (option: string, index: number) => void;
+    options?: string[];
+    children?: ReactNode;
+    onChangeSelect: (option: string | number, index: number) => void;
     selectedRadio: number;
+    index?: number
 }
 
 export const RadioButton = ({
     options, 
+    children,
     onChangeSelect,
     selectedRadio,
+    index = 0, 
 }: RadioButtonProps) => {
+    // Se tiver children, renderiza com children
+    if (children) {
+        return (
+            <TouchableOpacity 
+                onPress={() => onChangeSelect("", index)}
+                style={styles.containerWithChildren}
+            >
+                <View style={styles.outlineCircle}>
+                    {selectedRadio === index && <View style={styles.innerCircle}/>}
+                </View>
+                {children}
+            </TouchableOpacity>
+        );
+    }
+
+    // Se tiver options, renderiza lista vertical
     return(
         <View>
-            {options.map((opt, index) => (
+            {options?.map((opt, index) => (
                 <TouchableOpacity 
+                    key={index}
                     onPress={() => onChangeSelect(opt, index)}
                     style={styles.container}
                 >
                     <View style={styles.outlineCircle}>
-                        {selectedRadio == index && <View style={styles.innerCircle}/>}
+                        {selectedRadio === index && <View style={styles.innerCircle}/>}
                     </View>
                     <Text style={styles.label}>{opt}</Text>
                 </TouchableOpacity>  
@@ -37,6 +59,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 8,
         alignSelf: "flex-start",
+    },
+    containerWithChildren: {
+        flexDirection: "row",
+        gap: 8,
+        alignItems: "center",
     },
     label: {
         fontSize: 15,

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   View,
   Text,
@@ -18,6 +19,7 @@ import { SecondaryButton } from "@/components/buttons/SecondaryButton";
 import { PrimaryButton } from "@/components/buttons/PrimaryButton";
 
 export function NovoOrcamento() {
+  const [selectedRadio, setSelectedRadio] = useState(-1);
   return (
     <View style={{ flex: 1, paddingTop: 54, paddingBottom: 5 }}>
       <Header>Orçamento</Header>
@@ -29,16 +31,32 @@ export function NovoOrcamento() {
           </Section>
           <Section nameIcon="sell" title="Status">
             <View style={styles.containerStatus}>
-              <RadioButton>
+              <RadioButton
+                selectedRadio={selectedRadio}
+                onChangeSelect={(opt, i) => setSelectedRadio(i)}
+                index={0}
+              >
                 <TagRascunho />
               </RadioButton>
-              <RadioButton>
+              <RadioButton
+                selectedRadio={selectedRadio}
+                onChangeSelect={(opt, i) => setSelectedRadio(i)}
+                index={1}
+              >
                 <TagAprovado />
               </RadioButton>
-              <RadioButton>
+              <RadioButton
+                selectedRadio={selectedRadio}
+                onChangeSelect={(opt, i) => setSelectedRadio(i)}
+                index={2}
+              >
                 <TagEnviado />
               </RadioButton>
-              <RadioButton>
+              <RadioButton
+                selectedRadio={selectedRadio}
+                onChangeSelect={(opt, i) => setSelectedRadio(i)}
+                index={3}
+              >
                 <TagRecusado />
               </RadioButton>
             </View>
